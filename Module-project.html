@@ -53,6 +53,14 @@
                        <li>A switch button</li>
                        <li>Something with a sound output(Buzzer hopfully)</li>
                    </oi>
+                   <h3> General idea of how it works</h3>
+                   <oi>
+                       <li>The object is placed at a doorway, therefore if someone walks through, they will be detected.</li>
+                       <li>When a person walks through past the box, the ultrasonic sensor will detect that someone has walked past as the distance the ultrasonic sensor sense falls below a threshold.</li>
+                       <li>Once this happens, a bool called alarm will be set to yes.</li>
+                    <li>This will put the program into a while loop, where as long as the alarm is true, then the buzzer and the lights will be HIGH.</li>    
+                       <li>However, in this while loop, there will be a if statement that see whether the switch is clicked. If it is clicked then it will set alarm to false, as well as Setting all of the outputs to LOW. Setting the alarm to false will also kick the program out of the while loop.</li>
+                   </oi>
                    </div>
         </div>
          <div id=footer>
