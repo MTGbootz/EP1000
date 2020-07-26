@@ -25,25 +25,20 @@
             </ul>
         </div>
                <div id="Main">
-                   <p>The requirement of the project can be found here:<a href="https://rdorville.github.io/EP1000/finalProject/Final%20Project.html">https://rdorville.github.io/EP1000/finalProject/Final%20Project.html</a>. For this project, i plan to make something simple, and compact. So this product will encase all of the electronics in a box and should be safely secured. The box should be large enought to house all of the components like the breadboard and the arduino, as well as the other outputs and inputs electronics, which might be protruding out via cutouts.<br><img src="Project/Projectshelldxf.png"width=720 length=480><img src="Project/Projectshellfusion.png" width=720 length=480><br> This is a version of the project. This box is big enough to fit the breadboard + other electronics. It is also high enough so as to allow for a arduino board to be held by other 3D printed parts. However, as of now, there isnt any holes that would allow for output or input. For this, i add the apporiate cut out holes on the drawing so that when doing the laser cutting, it would also cut out this holes together.(note: has not been done yet, so still add)</p>
-                   <h2>Burglar/Intruder Alarm</h2>
-                    <p><img src="Project/V1NOTWORK.png" width=720, length=480><br>Still does not work, needa do some tweaking<br>For my general idea, I am thinking of doing something like a intruder/burglar alarm. It will comprise of a Ultrasonic sensor as the input, while using a buzzer(which i can hopefully attain) and LEDs lights as the output. It works by having the a ultrasonic sensor sense an area. If the ultrasonic sensor gets a reading reading that is lower than usual, say 30cm or lower, it could mean that someone has crossed this area, and it could be an intruder. This will cause the LEDs and buzzer that we hooked up to trigger, letting the user know that they have some unwanted guests. On top of this, If it was a false alarm, there would a switch in the circuit that the user could press, and that would reset the alarm.
-                   </p>
-                   <h3>Requirements</h3>
+                   <p>The requirement of the project can be found here:<a href="https://rdorville.github.io/EP1000/finalProject/Final%20Project.html">https://rdorville.github.io/EP1000/finalProject/Final%20Project.html</a>. For this project, i plan to make something simple, and compact. So this product will encase all of the electronics in a box and should be safely secured. The box should be large enought to house all of the components like the breadboard and the arduino, as well as the other outputs and inputs electronics, which might be protruding out via cutouts.<br>
+                 <h3>Requirements</h3>
                    <ul>
                    <li>CADD and/or Digital graphic components (vector/raster):</li>
                     <li>2D cutting and engraving: 2D printed part would be the box in which would house all of the components. For engraving, could be just the labels on the box itself of where the components would be.</li>
-                    <li>3D printed part:Could be the standoff/parts that hold the inputs/outputs to the sides of box.</li>
+                    <li>3D printed part: Standoff/ mount for the arduino, so can be mounted on top of the breadboard</li>
                     <li>Embedded control using a microcontroller with<br>
-                        –input(s):Ultrasonic sensor<br>
-                        –output(s):LED lights and buzzer</li>
+                        –input(s):Ultrasonic sensor, switch<br>
+                        –output(s):LED light, LCD display and buzzer</li>
                    </ul>
-                   <h3>3D printed part</h3>
-                   For this part, I was not really sure in what way i could apply this to the final product, so i thought that using as a robust and secure way to hold the electronics to the sides of the box would be good.
                    <h3>Bill of materials</h3>
                    <oi>
                        <li>1 Arduino board</li>
-                       <li>2 LED lights(2 different colours hopefully)</li>
+                       <li>1 LED lights</li>
                        <li>1 Ultrasonic sensor</li>
                        <li>1 Breadboard</li>
                        <li>Quite a bit of aryclic material (at least)</li>
@@ -52,15 +47,25 @@
                        <li>Also alot of resistors.</li>
                        <li>A switch button</li>
                        <li>Something with a sound output(Buzzer hopfully)</li>
+                       <li>0x27 LCD Display</li>
                    </oi>
+                                      
                    <h3> General idea of how it works</h3>
                    <oi>
                        <li>The object is placed at a doorway, therefore if someone walks through, they will be detected.</li>
-                       <li>When a person walks through past the box, the ultrasonic sensor will detect that someone has walked past as the distance the ultrasonic sensor sense falls below a threshold.</li>
-                       <li>Once this happens, a bool called alarm will be set to yes.</li>
-                    <li>This will put the program into a while loop, where as long as the alarm is true, then the buzzer and the lights will be HIGH.</li>    
-                       <li>However, in this while loop, there will be a if statement that see whether the switch is clicked. If it is clicked then it will set alarm to false, as well as Setting all of the outputs to LOW. Setting the alarm to false will also kick the program out of the while loop.</li>
+                       <li>When a person walks through past the box, the ultrasonic sensor will detect that someone has walked past as the distance the ultrasonic sensor senses falls below a threshold.</li>
+                       <li> If the button is NOT held for 5s within 15s seconds of the distance detected falling below the threshold, then the alarm will trigger. This means that the LEDs will light up and the buzzer will be sounded.</li>
+                       <li>If the sensor does trigger, then the buzzer and the LEDs will sound for half a minute.</li>
+                       <li>After this, the alarm will go back to its original state, which is that the the LEDs and the buzzers are off and detecting the distance from the ultrasound to see if distance falls below the threshold.</li>
                    </oi>
+                   <h2>Project journey</h2>
+                    <p>  I will type out the ideas that came and went, as well as what i did here. Do note, not everything written was included in the final project, this is a area where i can write what the ideas i had during the process of making this project</p><br>
+                   <img src="Project/Projectshelldxf.png"width=720 length=480><img src="Project/Projectshellfusion.png" width=720 length=480><br>
+                   This is the shell of the project. It is big enough to fit the breadboard + other electronics. It is also high enough so as to allow for a arduino board to be held by other 3D printed parts on top of the breadboard. However, as of now, there isnt any holes that would allow for output or input</p>
+                    <p><img src="Project/V1NOTWORK.png" width=720, length=480><br>Still does not work, needa do some tweaking<br>For my general idea, I am thinking of doing something like a intruder/burglar alarm. It will comprise of a Ultrasonic sensor as the input, while using a buzzer(which i can hopefully attain) and LEDs lights as the output. It works by having the a ultrasonic sensor sense an area. If the ultrasonic sensor gets a reading reading that is lower than usual, say 30cm or lower, it could mean that someone has crossed this area, and it could be an intruder. This will cause the LEDs and buzzer that we hooked up to trigger, letting the user know that they have some unwanted guests. On top of this, If it was a false alarm, there would a switch in the circuit that the user could press, and that would reset the alarm.<br>
+                    </p>
+                   <p>It is 22nd of july 2020, and i have come up with a 'final' idea, as well as the parts that need to be printed and laser cut.<br><img src="Project/ShellV2withengraving"width=720 length=480><br><img src="Project/ShellV2dxftgt.png"width=720 length=480><br><img src="Project/Arduinostand.png"width=720 length=480><br> So for the shell of the project, the shell is the same as the one at the top of the page, except here, i have managed to add the cutouts to the sides of the box, that will allow for the inputs and outputs of the project to sit. At the fron of the box, there is a cutout for the things that send out the signals from the ultrasonic sensor, as well as the little pill shaped looking piece of metal from the ultrasonic sensor.This allows for the ultrasonic sensor to send the signals outside of the box and bounch off surfaces of the outside, instead of the signals bouncing off the inside of the box. The little engraving or words at the bottom right side of the right side of the box says "Press to trigger the alarm". I hoped that by doing this it would deter any intruders from touching the button as it is used to disarm the alarm. To achieve, i plan to have cut out the sides of the box, then engrave it on those. Below this engraving, is a cutout for the switch. You can also see there is a cutout at the side of that would allow for the arduino stand to sit/hang on. The arduino sides of the arduino stand is slotted into this 2 parts, and when all of the sides of the shell is placed together, the stand would not drop. Speaking of the arduino stand, it is the 3d printed part for this project and will be a way for the arduino board to be mounted on a different height from the rest of the parts, making it so that the box would not have to be too large. The arduino stand also has grooves that helps to keep the arduino in place, so that the arduino would not fall of the stand if the project is moved. The little slot at the top is a cutout that is used to place the LEDs so that the light from the alarm can be seen from outside. I did not create a cutout for the buzzer, as i think it would not be needed. Since the sound from the buzzer can still be heard, even with a cutout.<br>As of 24th of july, i managed to roughly program out the program for the project, just that i did not program in the function of a buzzer yet as i do not have that component yet. Other than that, the program works fine and i have even considered adding in a LCD display which could make it more user friendly when trying to disarm the alarm. For the program,... .I will add the file here:<a href="D:\SP\DFAB\Project\ProgramV3\ProgramV3">Project code</a> <br>In order to incoporate this LCD display, i have added a cutout at the top of the shell so that the pins would be on the inside of the shell, while the other parts would be sitting at the top of the shell<br>It is 12 midnight on 25th of july and i realized i had made a mistake with my previous shell design. So i have redesigned the shell, and although it looks very similar to the previous design, i have tweaked the placement of several cutouts so it would be easier to fit the electronics in later, as well as making it a little more user friendly. <br></p>
+        <p>
                    </div>
         </div>
          <div id=footer>
