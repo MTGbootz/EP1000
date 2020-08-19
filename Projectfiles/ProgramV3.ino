@@ -140,7 +140,7 @@ bool Alarmreset()
 void Alarmtriggered()
 {
    digitalWrite(LEDG,HIGH);
-  // digitalWrite(buzzer,HIGH);
+   digitalWrite(buzzer,HIGH);
    Serial.println(alarm);
    lcd.backlight();
    lcd.setCursor(0,0);
